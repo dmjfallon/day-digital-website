@@ -89,6 +89,7 @@ section {
   text-transform: uppercase;
   color: var(--muted);
 }
+
 /* LOGOS */
 
 .logo-grid {
@@ -108,29 +109,37 @@ section {
   transition: filter 0.3s ease, opacity 0.3s ease;
 }
 
-/* Hover works in both themes */
 .logo-grid img:hover {
   opacity: 1;
   filter: none;
 }
 
-/* Dark mode base state */
+/* Dark mode */
 [data-theme="dark"] .logo-grid img {
-  opacity: 0.95;
   filter: grayscale(100%) brightness(1.4);
 }
 
-/* Dark mode hover override */
 [data-theme="dark"] .logo-grid img:hover {
-  opacity: 1;
   filter: none;
 }
 
-@media (max-width: 900px) {
+/* MOBILE FIX */
+@media (max-width: 768px) {
   .logo-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 50px 30px;
+  }
+
+  .logo-grid img {
+    max-height: 50px;
+    max-width: 140px;
   }
 }
+
+.logo-grid img:nth-last-child(1):nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
 /* TESTIMONIALS */
 
 .testimonial {
